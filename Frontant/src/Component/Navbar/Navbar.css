@@ -72,3 +72,7 @@ header {
   margin-right: 50px;
   color: white;
 }
+
+.logout:hover {
+  cursor: pointer;
+}

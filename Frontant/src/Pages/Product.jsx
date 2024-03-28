@@ -3,6 +3,8 @@ import BreadCrum from "../Component/BreadCrum/BreadCrum";
 import "./style/Product.css";
 import { useSelector } from "react-redux";
 import ProductDisplay from "../Component/ProductDisplay/ProductDisplay";
+import Discription from "../Component/Discription/Discription";
+import RelatedProduct from "../Component/RelatedProduct/RelatedProduct";
 
 const Product = () => {
   const { products } = useSelector((store) => store.product);
@@ -14,6 +16,8 @@ const Product = () => {
     <div>
       <BreadCrum item={product} />
       <ProductDisplay item={product} />
+      <Discription />
+      <RelatedProduct category={product.category} />
     </div>
   );
 };

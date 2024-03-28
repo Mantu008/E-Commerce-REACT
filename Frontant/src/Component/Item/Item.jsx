@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 const Item = ({ item }) => {
   const navigate = useNavigate();
   return (
-    <div className="card main" onClick={() => navigate(`/product/${item.id}`)}>
+    <div
+      className="card main"
+      onClick={() => {
+        navigate(`/product/${item.id}`), window.scrollTo(0, 0);
+      }}
+    >
       <img className="card-img-top" src={item.image} alt="Card image cap" />
       <div className="card-body">
         <p className="card-text">{item.name}</p>

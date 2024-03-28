@@ -2,7 +2,21 @@ import "./ProductDisplay.css";
 import start_icon from "../Assets/star_icon.png";
 import start_dull_icon from "../Assets/star_dull_icon.png";
 
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/cartStore";
+
 const ProductDisplay = ({ item }) => {
+  const { cart } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
+
+  const handleClick = (item) => {
+    dispatch(
+      cartActions.addTocart({
+        item,
+      })
+    );
+  };
+
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
@@ -50,7 +64,7 @@ const ProductDisplay = ({ item }) => {
             <div>XXL</div>
           </div>
         </div>
-        <button>Add To Cart</button>
+        <button onClick={() => handleClick(item)}>Add To Cart</button>
         <p className="productdiaplay-right-category">
           <span>Category: </span>Women, T-Shirt, Crop Top
         </p>
